@@ -1,0 +1,13 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

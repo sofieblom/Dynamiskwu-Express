@@ -19,7 +19,14 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { todoTasks });
+});
+
+app.get("/task/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const task = todoTasks.find((t) => t.id === id);
+
+  res.render("tasks-single", task);
 });
 
 app.listen(port, () => {

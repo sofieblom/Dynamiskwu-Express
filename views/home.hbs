@@ -1,1 +1,12 @@
-<h2>My Todo's</h2>
+<h2>My Todo'ssss</h2>
+
+<form action="home.hbs">
+  <input type="text" name="description" value="Add new todo" />
+  <input type="submit" value="Add" />
+</form>
+
+<ul>
+  {{#each todoTasks}}
+    <li> <a href="task/{{id}}">{{description}}</a></li>
+  {{/each}}
+</ul>
