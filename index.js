@@ -18,9 +18,34 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
+// get max id so when you add a new todo it will get the right id
+function getMaxId() {
+  let maxId = 0;
+  for (const item of todoTasks) {
+    if (item.id > maxId) {
+      maxId = item.id;
+    }
+  }
+  return maxId + 1;
+}
+
 // set 'home' to the firstpage, and add the todo's
 app.get("/", (req, res) => {
   res.render("home", { todoTasks });
+});
+
+app.post("/", (req, res) => {
+  const id = getMaxId(todoTasks);
+
+  const newTask = {
+    id: id,
+    description: req.body.description,
+    created: new Date(),
+    done: false,
+  };
+
+  todoTasks.push(newTask);
+  res.redirect("/");
 });
 
 // get the single task
@@ -44,14 +69,14 @@ app.post("/task/:id/edit", (req, res) => {
   const id = parseInt(req.params.id);
   const index = todoTasks.findIndex((i) => i.id === id);
 
-  let newTask = {
+  let editTask = {
     id: id,
     created: new Date(),
     description: req.body.description,
     done: false,
   };
 
-  todoTasks.splice(index, 1, newTask);
+  todoTasks.splice(index, 1, editTask);
   res.redirect("/");
 });
 
