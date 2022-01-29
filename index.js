@@ -18,15 +18,41 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
+// set 'home' to the firstpage, and add the todo's
 app.get("/", (req, res) => {
   res.render("home", { todoTasks });
 });
 
+// get the single task
 app.get("/task/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const task = todoTasks.find((t) => t.id === id);
 
   res.render("tasks-single", task);
+});
+
+// edit your task
+app.get("/task/:id/task-edit", (req, res) => {
+  const id = parseInt(req.params.id);
+  const task = todoTasks.find((t) => t.id === id);
+
+  res.render("tasks-edit", task);
+});
+
+// post your task-edit
+app.post("/task/:id/edit", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = todoTasks.findIndex((i) => i.id === id);
+
+  let newTask = {
+    id: id,
+    created: new Date(),
+    description: req.body.description,
+    done: false,
+  };
+
+  todoTasks.splice(index, 1, newTask);
+  res.redirect("/");
 });
 
 app.listen(port, () => {
