@@ -32,7 +32,7 @@ app.get("/task/:id", (req, res) => {
 });
 
 // edit your task
-app.get("/task/:id/task-edit", (req, res) => {
+app.get("/task/:id/edit", (req, res) => {
   const id = parseInt(req.params.id);
   const task = todoTasks.find((t) => t.id === id);
 
@@ -52,6 +52,23 @@ app.post("/task/:id/edit", (req, res) => {
   };
 
   todoTasks.splice(index, 1, newTask);
+  res.redirect("/");
+});
+
+// get delete task - page
+app.get("/task/:id/delete", (req, res) => {
+  const id = parseInt(req.params.id);
+  const task = todoTasks.find((t) => t.id === id);
+
+  res.render("tasks-delete", task);
+});
+
+// confirm delete, post form and redirect to firstpage
+app.post("/task/:id/delete", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = todoTasks.findIndex((i) => i.id === id);
+
+  todoTasks.splice(index, 1);
   res.redirect("/");
 });
 
