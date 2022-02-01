@@ -1,12 +1,29 @@
-<h2>My Todo'ssss</h2>
+<h2>My ToDo's</h2>
 
 <form action="/" method="post">
-  <input type="text" name="description" value="Add new todo" />
-  <input type="submit" value="Add" />
+  <input type="text" name="description" placeholder="Add new todo" />
+  <input class="button" type="submit" value="Add" />
 </form>
+<span>Sort by: </span><a href="task/sort-newest">Newest</a>
+<a href="task/sort-oldest">Oldest</a>
+<br />
+<span>Show: </span>
+<a href="task/all">All</a>
+<a href="task/done">Done</a>
+<a href="task/not-done">Undone</a>
 
 <ul>
   {{#each todoTasks}}
-    <li> <a href="task/{{id}}">{{description}}</a></li>
+    <li>
+      {{!-- <a class="task-checkbox" href="task/{{id}}/toggle">
+      <form action="/">
+        <input type="checkbox" name="checkbox" id="{{id}} " value="{{done}}" />
+      </form>  
+      </a> --}}
+      <a class="task-description" href="task/{{id}}">{{description}}</a>
+      <span class="done">/Done?</span>
+      <a class="task-status" href="task/{{id}}/status">{{done}}</a>
+
+    </li>
   {{/each}}
 </ul>

@@ -1,0 +1,23 @@
+<h2>Done tasks</h2>
+
+<form action="/" method="post">
+  <input type="text" name="description" placeholder="Add new todo" />
+  <input class="button" type="submit" value="Add" />
+</form>
+
+<span>Sort by: </span><a href="/task/sort-newest">Newest</a>
+<a href="/task/sort-oldest">Oldest</a>
+<br />
+<span>Show: </span>
+<a href="/task/all">All</a>
+<a href="/task/done">Done</a>
+<a href="/task/not-done">Undone</a>
+
+<ul>
+  {{#each doneTasks}}
+    <li>
+      <a class="task-description" href="/task/{{id}}">{{description}}</a>
+      {{!-- <a class="task-status" href="/task/{{id}}/status">{{done}}</a> --}}
+    </li>
+  {{/each}}
+</ul>

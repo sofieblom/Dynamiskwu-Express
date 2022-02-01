@@ -1,25 +1,62 @@
 body {
+  background: linear-gradient(-230deg, #131212 50%, rgba(0, 0, 0, 0) 80%),
+    url("./pexels-jeremy-müller.jpg");
   font-family: "Courier New", Courier, monospace;
   margin: 0 auto;
-  text-align: center;
+  width: 95%;
+  text-align: left;
 }
 header {
-  background-color: pink;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 
 .menu {
-  color: black;
-  height: 50px;
-  font-size: 18px;
+  color: whitesmoke;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 25px;
+  color: #e5efc1;
+}
+
+input {
+  font-family: "Courier New", Courier, monospace;
+}
+
+p {
+  color: #a2d5ab;
+}
+
+span {
+  color: #a2d5ab;
 }
 
 ul {
   padding: 0;
   list-style: none;
+
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+li {
+  color: white;
+}
+
+.task-status,
+.done {
+  font-size: 11px;
 }
 
 a {
-  color: black;
+  color: #ffe3b3;
+  /* color: #a2d5ab; */
   text-decoration: none;
 }
 
@@ -28,5 +65,58 @@ a:hover {
 }
 
 a:visited {
+  color: #ffe3b3;
+}
+
+.task-checkbox {
+  text-decoration: none;
+}
+.task-checkbox:hover {
+  text-decoration: none;
+}
+
+.singleDescription {
+  font-size: 18px;
+}
+
+.singleTime {
+  font-size: 12px;
+}
+
+.singlebutton {
+  font-size: 12px;
+  text-decoration: none;
+  background-color: #557b83;
   color: black;
+  padding: 5px;
+  box-shadow: 5px 5px 5px 0px rgba(29, 29, 29, 0.349);
+}
+
+.singlebutton:hover {
+  text-decoration: none;
+  background-color: #6a939b;
+}
+
+.singlebutton:visited {
+  color: black;
+}
+
+.button {
+  background-color: #557b83;
+  border-style: none;
+  padding: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px 0px rgba(29, 29, 29, 0.349);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.button:hover {
+  background-color: #6a939b;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    width: 80%;
+  }
 }

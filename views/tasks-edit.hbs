@@ -1,7 +1,7 @@
 <h2>Edit toDo</h2>
 
 <p>{{description}}</p>
-<p>{{created}}</p>
+<p class="singleTime">{{created}}</p>
 
 <form action="/task/{{id}}/edit" method="POST">
   <input
@@ -12,7 +12,7 @@
   />
   <br />
   <br />
-  <input type="checkbox" name="done" value="hmm" />
-  <input type="submit" value="Save" />
+
+  <input class="Button" type="submit" value="Save" />
 
 </form>

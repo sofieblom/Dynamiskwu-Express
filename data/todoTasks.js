@@ -5,7 +5,7 @@ const todoTasks = [
     id: 1,
     created: new Date(),
     description: "Dricka för mycket kaffe",
-    done: true,
+    done: false,
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const todoTasks = [
     id: 4,
     created: new Date(),
     description: "Laga punktering på cykeln",
-    done: false,
+    done: true,
   },
   {
     id: 5,
