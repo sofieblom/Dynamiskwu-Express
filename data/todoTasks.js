@@ -1,5 +1,3 @@
-let date_ob = new Date();
-
 const todoTasks = [
   {
     id: 1,
