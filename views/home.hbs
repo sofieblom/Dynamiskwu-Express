@@ -15,11 +15,6 @@
 <ul>
   {{#each todoTasks}}
     <li>
-      {{!-- <a class="task-checkbox" href="task/{{id}}/toggle">
-      <form action="/">
-        <input type="checkbox" name="checkbox" id="{{id}} " value="{{done}}" />
-      </form>  
-      </a> --}}
       <a class="task-description" href="task/{{id}}">{{description}}</a>
       <span class="done">/Done?</span>
       <a class="task-status" href="task/{{id}}/status">{{done}}</a>

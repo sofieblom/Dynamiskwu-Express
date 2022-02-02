@@ -19,6 +19,8 @@ app.set("view engine", "hbs");
 app.use(express.static("public"));
 
 app.use(express.json());
+
+// log requests
 app.use(morgan("common"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -34,26 +36,26 @@ function getMaxId() {
   return maxId + 1;
 }
 
-// Sort todo's by newest
+// Sort todo-list by newest
 function sortTodoNewest() {
   todoTasks.sort(
     (firstItem, secondItem) => secondItem.created - firstItem.created
   );
 }
 
-// Sort todo's by oldest
+// Sort todo-list by oldest
 function sortTodoOldest() {
   todoTasks.sort(
     (firstItem, secondItem) => firstItem.created - secondItem.created
   );
 }
 
-// set 'home' to the firstpage, and add the todo's
+// set 'home' to the firstpage, and add your todo list.
 app.get("/", (req, res) => {
   res.render("home", { todoTasks });
 });
 
-// toggle done-status true/false
+// toggle true/false on your "done" property
 app.get("/task/:id/status", (req, res) => {
   const id = parseInt(req.params.id);
   const task = todoTasks.find((t) => t.id === id);
@@ -63,7 +65,7 @@ app.get("/task/:id/status", (req, res) => {
   res.redirect("/");
 });
 
-// add new todo
+// add new task to your todo
 app.post("/", (req, res) => {
   const id = getMaxId(todoTasks);
 
